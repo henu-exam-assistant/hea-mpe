@@ -3,6 +3,7 @@ module.exports = {
     NODE_ENV: '"production"'
   },
   defineConstants: {
+    CUR_ENV: '"production"'
   },
   mini: {},
   h5: {

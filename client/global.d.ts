@@ -16,3 +16,6 @@ declare const process: {
     [key: string]: any;
   }
 }
+
+// 标记当前环境 development/production
+declare const CUR_ENV: 'development' | 'production'
