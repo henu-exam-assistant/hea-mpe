@@ -16,23 +16,30 @@ class App extends Component {
       'pages/user/index'
     ],
     tabBar: {
-      list: [{
-        pagePath: 'pages/home/index',
-        text: '首页'
-      }, {
-        pagePath: 'pages/user/index',
-        text: '用户'
-      }],
+      list: [
+        {
+          text: '首页',
+          pagePath: 'pages/home/index',
+          iconPath: './assets/images/icon-home.png',
+          selectedIconPath: './assets/images/icon-home-selected.png',
+        },
+        {
+          text: '用户',
+          pagePath: 'pages/user/index',
+          iconPath: './assets/images/icon-user.png',
+          selectedIconPath: './assets/images/icon-user-selected.png',
+        }
+      ],
       'color': '#000',
       'selectedColor': '#56abe4',
-      'backgroundColor': '#fff',
-      'borderStyle': 'white'
+      'backgroundColor': '#f2f2f2',
+      'borderStyle': 'black'
     },
     window: {
       backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
+      navigationBarBackgroundColor: '#56abe4',
       navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      navigationBarTextStyle: 'white'
     },
     cloud: true
   }
