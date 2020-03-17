@@ -13,18 +13,28 @@ class App extends Component {
   config: Config = {
     pages: [
       'pages/home/index',
-      'pages/user/index'
+      'pages/user/index',
+      'pages/routes/login/login/index',
+      'pages/routes/login/loginway/index',
+      'pages/routes/login/register/index',
+      'pages/routes/login/protocol/index',
+      'pages/routes/examinfo/index',
+      'pages/routes/stulist/index',
+      'pages/routes/examlist/index',
+      'pages/routes/examnotes/index',
+      'pages/routes/feedback/index',
+      'pages/routes/selfinfo/index'
     ],
     tabBar: {
       list: [
         {
-          text: '首页',
+          text: '',
           pagePath: 'pages/home/index',
           iconPath: './assets/images/icon-home.png',
           selectedIconPath: './assets/images/icon-home-selected.png',
         },
         {
-          text: '用户',
+          text: '',
           pagePath: 'pages/user/index',
           iconPath: './assets/images/icon-user.png',
           selectedIconPath: './assets/images/icon-user-selected.png',
@@ -38,7 +48,7 @@ class App extends Component {
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#56abe4',
-      navigationBarTitleText: 'WeChat',
+      navigationBarTitleText: '河南大学考试助手',
       navigationBarTextStyle: 'white'
     },
     cloud: true
