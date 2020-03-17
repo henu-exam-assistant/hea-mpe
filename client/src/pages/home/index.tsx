@@ -1,6 +1,6 @@
 import Taro, { useState } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { AtButton } from 'taro-ui'
+import { AtTabs, AtTabsPane } from 'taro-ui'
 
 import PannelLsit from '../../components/pannellsit'
 import TimeTable from '../../components/timetable'
@@ -8,16 +8,21 @@ import TimeTable from '../../components/timetable'
 import './index.scss'
 
 export default function Home() {
-  const [current, setCurrent] = useState(0)
+  const tabList = [{ title: '时间表' }, { title: '列表' },]
 
-  const handleClick = () => {
-    setCurrent(current + 1)
-  }
+  const [current, setCurrent] = useState(0)
+  const handleClick = (value: number) => { setCurrent(value) }
 
   return (
     <View className='index'>
-      <View>{current}</View>
-      <AtButton onClick={handleClick}>CLICK ME</AtButton>
+      <AtTabs current={current} tabList={tabList} onClick={handleClick}>
+        <AtTabsPane current={current} index={0} >
+          <TimeTable />
+        </AtTabsPane>
+        <AtTabsPane current={current} index={1}>
+          <PannelLsit />
+        </AtTabsPane>
+      </AtTabs>
     </View>
   )
 }
