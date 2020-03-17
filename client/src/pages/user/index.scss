@@ -1,0 +1,105 @@
+@import '../../style/common.scss';
+$imgUrl: '../../assets/images/' !default;
+
+$icon-user: $imgUrl + 'icon-user-selected.png' !default;
+$icon-feedback: $imgUrl + 'icon-feedback.png' !default;
+$icon-notes: $imgUrl + 'icon-notes.png' !default;
+
+.user {
+  width: 100%;
+  height: 100%;
+}
+
+.user__header {
+  @include flex();
+  justify-content: flex-start;
+  flex-direction: column;
+  width: 100%;
+  height: 355px;
+  margin-bottom: 50px;
+  background-image: linear-gradient(to bottom, #56abe4 25%, rgba(255, 255, 255, 0.1));
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+
+  &-avatar {
+    @include flex();
+    position: relative;
+    margin: 24px;
+    margin-top: 38px;
+
+    &-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: #fff;
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    @mixin position($size, $color) {
+      content: '';
+      position: absolute;
+      width: $size;
+      height: $size;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $color;
+      border-radius: 50%;
+    }
+
+    &-before {
+      @include position(136px, rgba(255, 255, 255, 1));
+    }
+
+    &-after {
+      @include position(168px, rgba(255, 255, 255, 0.5));
+    }
+  }
+
+  &-nickname {
+    color: #fff;
+    margin-top: 30px;
+    font-size: 36px;
+  }
+}
+
+.user__list {
+  @include flex();
+  flex-direction: column;
+  width: 100%;
+
+  &-item {
+    @include flex();
+    box-sizing: border-box;
+    justify-content: flex-start;
+    width: 690px;
+    height: 90px;
+    margin-bottom: 30px;
+    border-radius: 16px;
+    background-color: #fff;
+    padding: 30px 35px 30px 42px;
+  }
+
+  &-item-text {
+    font-size: 30px;
+  }
+
+  &-item-icon {
+    @include common-icon(30px);
+    margin-right: 20px;
+
+    &-selfinfo {
+      background-image: url($icon-user);
+    }
+
+    &-feedback {
+      background-image: url($icon-feedback);
+    }
+
+    &-notes {
+      background-image: url($icon-notes);
+    }
+  }
+}
