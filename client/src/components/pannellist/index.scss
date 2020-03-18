@@ -1,0 +1,40 @@
+@import '../../style/common.scss';
+
+$padding: 30px !default;
+
+.pannellist {
+  box-sizing: border-box;
+  height: 100%;
+  overflow: scroll;
+
+  &-scrollview {
+    margin: 0 $padding;
+    padding-top: $padding;
+  }
+
+  &-item {
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: $padding;
+    padding: 20px;
+    color: #fff;
+    border-radius: 16px;
+
+    &-course {
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    &-time,
+    &-place {
+      font-size: 28px;
+    }
+  }
+
+  // 隐藏滚动条
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+  }
+}

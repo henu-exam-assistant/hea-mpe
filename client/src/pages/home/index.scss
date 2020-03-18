@@ -1,3 +1,20 @@
+$tabsNavHeight: 90px !default;
+
 .index {
   height: 100%;
+}
+
+.at-tabs {
+  &__header {
+    min-height: $tabsNavHeight;
+  }
+
+  &__body {
+    height: calc(#{100%} - #{$tabsNavHeight});
+  }
+
+  &-pane,
+  &-pane--active {
+    height: 100%;
+  }
 }

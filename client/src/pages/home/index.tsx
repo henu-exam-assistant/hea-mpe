@@ -2,7 +2,7 @@ import Taro, { useState } from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import { AtTabs, AtTabsPane } from 'taro-ui'
 
-import PannelLsit from '../../components/pannellsit'
+import PannelList from '../../components/pannellist'
 import TimeTable from '../../components/timetable'
 
 import './index.scss'
@@ -20,7 +20,7 @@ export default function Home() {
           <TimeTable />
         </AtTabsPane>
         <AtTabsPane current={current} index={1}>
-          <PannelLsit />
+          <PannelList />
         </AtTabsPane>
       </AtTabs>
     </View>
