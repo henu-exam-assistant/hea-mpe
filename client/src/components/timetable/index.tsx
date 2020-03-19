@@ -63,7 +63,6 @@ const TimeTable: Taro.FC = () => {
       leftOffset: 4,
       dura: 2
     },
-
   ]
 
   return (
@@ -106,7 +105,7 @@ const TimeTable: Taro.FC = () => {
           <View className='timetable__left-items'>
             {
               new Array(13).fill(0).map((_, index) => (
-                <View className='timetable__left-item'>{index + 1}</View>
+                <View className='timetable__left-item' key='key'>{index + 1}</View>
               ))
             }
           </View>
@@ -114,9 +113,16 @@ const TimeTable: Taro.FC = () => {
 
         <View className='timetable__body'>
           <View className='timetable__body-list'>
+            {/* 主体的框架格子 */}
+            <View className='timetable__body-list-lines' >
+              {new Array(13).fill(0).map(() => (
+                <View className='timetable__body-list-lines-item' key='key' />
+              ))}
+            </View>
             {
               ListConfig.map((item, index) => (
                 <View
+                  key='key'
                   style={{ height: `${item.dura * 50}px`, backgroundColor: Config.colorList[index % Config.colorList.length] }}
                   className={`timetable__body-list-item timetable__body-list-item-${item.leftOffset}-${item.topOffset}`}
                 >

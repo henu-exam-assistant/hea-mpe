@@ -4,6 +4,10 @@ $leftWidth: 50px !default;
 $leftHeight: 100px !default;
 $topHeight: 100px !default;
 
+@mixin common-bottom-line() {
+  border-bottom: 2px solid #f2f2f2;
+}
+
 .timetable {
   width: 100%;
   height: 100%;
@@ -19,10 +23,9 @@ $topHeight: 100px !default;
     &-items {
       @include flex();
       box-sizing: border-box;
+      width: 100%;
       height: $topHeight;
       padding-left: $leftWidth;
-
-      width: 100%;
     }
 
     &-item {
@@ -32,6 +35,7 @@ $topHeight: 100px !default;
       height: 100%;
       background-color: #fff;
       font-size: 22px;
+      @include common-bottom-line();
     }
   }
 
@@ -57,7 +61,7 @@ $topHeight: 100px !default;
       height: $leftHeight - 2px;
       background-color: #fff;
       font-size: 22px;
-      border-bottom: 2px solid #f2f2f2;
+      @include common-bottom-line();
     }
   }
 
@@ -72,6 +76,19 @@ $topHeight: 100px !default;
       align-items: flex-start;
       width: 100%;
       position: relative;
+    }
+
+    &-list-lines {
+      @include flex();
+      flex-direction: column;
+      width: 100%;
+
+      &-item {
+        width: 100%;
+        height: $leftHeight - 2px;
+        background-color: #fff;
+        @include common-bottom-line();
+      }
     }
 
     &-list-item {
