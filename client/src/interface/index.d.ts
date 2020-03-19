@@ -13,3 +13,14 @@ declare interface StuInfo {
   name: string
   stuid: string
 }
+
+// examnote data
+interface ExamNote {
+  title: string
+  content: string[]
+  selfClass?: string
+}
+interface ExamNotes {
+  student: ExamNote[]
+  teacher: ExamNote[]
+}
