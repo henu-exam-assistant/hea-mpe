@@ -1,0 +1,62 @@
+$static-path:'assets//styles/iconfont/' !default;
+
+@font-face {
+  font-family: 'IconFont';
+  src: url($static-path + 'iconfont.eot');
+  src: url($static-path + 'iconfont.eot?#iefix') format('embedded-opentype'),
+    url($static-path + 'iconfont.woff2') format('woff2'),
+    url($static-path + 'iconfont.woff') format('woff'),
+    url($static-path + 'iconfont.ttf') format('truetype'),
+    url($static-path + 'iconfont.svg#IconFont') format('svg');
+
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 根据第三方字体图标库编写 */
+/* 举例：fa 就是 prefixClass 的值，下面的的图标 css class 命名都要用 fa- 开头  */
+.iconfont {
+  display: inline-block;
+  /* 以下的 font 与上面 @font-face 的 font-family 要一致*/
+  font: normal normal normal 14px/1 IconFont;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconfont-monitor:before {
+  content: "\e6c0";
+}
+
+.iconfont-inspector:before {
+  content: "\e674";
+}
+
+.iconfont-course:before {
+  content: "\e62c";
+}
+
+.iconfont-people-count:before {
+  content: "\e608";
+}
+
+.iconfont-time:before {
+  content: "\e609";
+}
+
+.iconfont-teacher:before {
+  content: "\e627";
+}
+
+.iconfont-place:before {
+  content: "\e605";
+}
+
+.iconfont-notice:before {
+  content: "\e8b3";
+}
+
+.iconfont-feedback:before {
+  content: "\e629";
+}
