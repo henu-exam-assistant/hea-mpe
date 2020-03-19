@@ -6,9 +6,12 @@
 // 列表
 @import "~taro-ui/dist/style/components/list.scss";
 @import "~taro-ui/dist/style/components/icon.scss";
+// 栅格布局
+@import "~taro-ui/dist/style/components/flex.scss";
 
 page {
   width: 100%;
   height: 100%;
+  color: #333;
   background-color: #f1f1f1;
 }

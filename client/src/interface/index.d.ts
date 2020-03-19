@@ -6,3 +6,10 @@ declare interface TimeTableItem {
   leftOffset: 0 | 1 | 2 | 3 | 4 | 5 | 6
   dura: number
 }
+
+// stulist
+declare interface StuInfo {
+  seatnum: string
+  name: string
+  stuid: string
+}

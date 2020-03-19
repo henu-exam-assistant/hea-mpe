@@ -1,0 +1,37 @@
+@import '../../../style/common.scss';
+
+$top-height: 72px !default;
+
+.stu-list {
+  .at-row {
+    height: 100%;
+  }
+
+  .at-col {
+    @include flex();
+    height: 100%;
+  }
+
+  &__top {
+    width: 100%;
+    height: $top-height;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    font-size: 36px;
+  }
+
+  &__body {
+    margin-top: $top-height;
+
+    &-list-item {
+      font-size: 28px;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .at-col {
+      box-sizing: border-box;
+      padding: 18px;
+    }
+  }
+}
