@@ -1,6 +1,6 @@
 @import './style/icon.scss';
 // 按钮
-// @import "~taro-ui/dist/style/components/button.scss";
+@import "~taro-ui/dist/style/components/button.scss";
 // @import "~taro-ui/dist/style/components/loading.scss";
 // 标签页
 @import "~taro-ui/dist/style/components/tabs.scss";
@@ -13,6 +13,12 @@
 @import "~taro-ui/dist/style/components/article.scss";
 // 头像样式
 // @import "~taro-ui/dist/style/components/avatar.scss";
+// 表单
+@import "~taro-ui/dist/style/components/form.scss";
+@import "~taro-ui/dist/style/components/input.scss";
+// @import "~taro-ui/dist/style/components/radio.scss";
+// 顶部消息提示
+@import "~taro-ui/dist/style/components/message.scss";
 
 page {
   width: 100%;

@@ -1,7 +1,15 @@
 export const Config = {
   apiUrl: '',
   colorList: ["#85B8CF", "#90C652", "#D8AA5A", "#FC9F9D", "#0A9A84", "#61BC69", "#12AEF3", "#E29AAD", "#ADD8E6"],
-  stulist: { left: 3, center: 3, right: 6 }
+  stulist: { left: 3, center: 3, right: 6 },
+  login: {
+    role: ["考生", "教师"],
+    colleges: ['软件学院'],
+    check: {
+      username: { empty: '请输入账号', format: '账号格式错误', reg: /^\d{6,10}$/ },
+      password: { empty: '请输入密码', format: '密码格式错误', reg: /^[a-zA-Z0-9]{6,12}$/ }
+    }
+  }
 }
 
 export const UserProtocol = {

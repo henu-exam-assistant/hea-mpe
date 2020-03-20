@@ -1,3 +1,12 @@
+// login
+declare interface SubmitOptions {
+  username: string
+  password: string
+  role?: string
+  college?: string
+  isAgree: boolean
+}
+
 // timetable
 declare interface TimeTableItem {
   place: string

@@ -1,0 +1,36 @@
+// 表单
+@import "~taro-ui/dist/style/components/form.scss";
+@import "~taro-ui/dist/style/components/input.scss";
+
+.iform {
+  &__title {
+    padding: 20px;
+    font-size: 32px;
+    font-weight: bold;
+  }
+
+  // &__body {
+  //   padding-bottom: 50px;
+  // }
+
+  &__checkbox-agree {
+    // margin: 20px 0;
+    padding: 20px 0;
+
+    &-elem {
+      transform: scale(0.6, 0.6);
+    }
+  }
+
+  &__lable-agree {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__button-submit {
+    width: 50%;
+    background-color: #6b90e2 !important;
+    margin-top: 48px;
+  }
+}
