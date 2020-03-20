@@ -4,4 +4,4 @@ export * from './getTranslatedText'
 export * from './utils'
 
 // 涉及具体业务
-export * from './loginCheck'
+export * from './login/loginCheck'

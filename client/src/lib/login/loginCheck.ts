@@ -1,5 +1,5 @@
 import Taro from '@tarojs/taro'
-import { Config } from '../config'
+import { Config } from '../../config'
 
 /**
  * 登陆注册共用的提交前数据格式验证
