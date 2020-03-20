@@ -5,6 +5,8 @@ declare interface SubmitOptions {
   role?: string
   college?: string
   isAgree: boolean
+  usernameStatus: boolean
+  passwordStatus: boolean
 }
 
 // timetable

@@ -9,17 +9,28 @@ import './index.scss'
 
 interface IProps {
   title: string
+  isRegister: boolean
   onSubmit: (event: SubmitOptions) => void
 }
 
-const Login: Taro.FC<IProps> = (props) => {
+const IForm: Taro.FC<IProps> = (props) => {
   const [roleIndex, setRoleIndex] = useState(0);
   const [collegeIndex, setCollegeIndex] = useState(0);
   const handleRoleChange = (event: CommonEvent) => { setRoleIndex(+event.detail.value) }
   const handleCollegeChange = (event: CommonEvent) => { setCollegeIndex(+event.detail.value) }
 
+  const [usernameStatus, setUsernameStatus] = useState(false)
+  const [passwordStatus, setPasswordStatus] = useState(false);
+
   const handleInputBlur = (type: ('username' | 'password'), detail: CommonEvent['detail']) => {
     const { check: base } = Config.login
+    const setState = {
+      username: setUsernameStatus,
+      password: setPasswordStatus,
+    }
+
+    // 触发blur默认置为false
+    setState[type](false)
 
     if (detail.value === '') {
       return Taro.atMessage({ type: 'error', message: base[type].empty, duration: 1500 })
@@ -28,15 +39,22 @@ const Login: Taro.FC<IProps> = (props) => {
     if (!base[type].reg.test(detail.value)) {
       return Taro.atMessage({ type: 'error', message: base[type].format, duration: 1500 })
     }
+
+    // 以上均通过，置为true
+    setState[type](true)
   }
 
   const onSubmit = (event: CommonEvent) => {
     // console.log(event);
-    const result = {
+    const result: SubmitOptions = {
       ...event.detail.value,
-      role: Config.login.role[roleIndex],
-      college: Config.login.colleges[collegeIndex],
+      usernameStatus, passwordStatus,
       isAgree: event.detail.value.isAgree.length !== 0
+    }
+
+    if (props.isRegister) {
+      result.role = Config.login.role[roleIndex]
+      result.college = Config.login.colleges[collegeIndex]
     }
 
     props.onSubmit(result)
@@ -69,30 +87,35 @@ const Login: Taro.FC<IProps> = (props) => {
               <Input
                 id='password' className='at-input__input'
                 type='text' name='password' password={true} placeholder='请输入密码'
+                maxLength={16}
                 onBlur={event => handleInputBlur('password', event.detail)}
               />
             </View>
           </View>
 
-          {/* 用户类型 */}
-          <View className='at-input'>
-            <View className='at-input__container'>
-              <Label className='at-input__title' for='role'>身份</Label>
-              <Picker id='role' mode='selector' onChange={handleRoleChange} value={roleIndex} range={Config.login.role} name='role'>
-                <View>{!roleIndex ? '考生' : '教师'}</View>
-              </Picker>
-            </View>
-          </View>
+          {
+            props.isRegister && <Block>
+              {/* 用户类型 */}
+              <View className='at-input'>
+                <View className='at-input__container'>
+                  <Label className='at-input__title' for='role'>身份</Label>
+                  <Picker id='role' mode='selector' onChange={handleRoleChange} value={roleIndex} range={Config.login.role} name='role'>
+                    <View>{!roleIndex ? '考生' : '教师'}</View>
+                  </Picker>
+                </View>
+              </View>
 
-          {/* 所在学院 */}
-          <View className='at-input'>
-            <View className='at-input__container'>
-              <Label className='at-input__title' for='college'>学院</Label>
-              <Picker id='college' mode='selector' onChange={handleCollegeChange} value={collegeIndex} range={Config.login.colleges} name='college'>
-                <View>{Config.login.colleges[collegeIndex]}</View>
-              </Picker>
-            </View>
-          </View>
+              {/* 所在学院 */}
+              <View className='at-input'>
+                <View className='at-input__container'>
+                  <Label className='at-input__title' for='college'>学院</Label>
+                  <Picker id='college' mode='selector' onChange={handleCollegeChange} value={collegeIndex} range={Config.login.colleges} name='college'>
+                    <View>{Config.login.colleges[collegeIndex]}</View>
+                  </Picker>
+                </View>
+              </View>
+            </Block>
+          }
 
           {/* 用户协议 */}
           <CheckboxGroup name='isAgree' className='iform__checkbox-agree'>
@@ -111,8 +134,8 @@ const Login: Taro.FC<IProps> = (props) => {
   )
 }
 
-Login.config = {
+IForm.config = {
   navigationBarTitleText: '登陆',
 }
 
-export default Login
+export default IForm

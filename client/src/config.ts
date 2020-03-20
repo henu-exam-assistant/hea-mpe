@@ -6,8 +6,21 @@ export const Config = {
     role: ["考生", "教师"],
     colleges: ['软件学院'],
     check: {
-      username: { empty: '请输入账号', format: '账号格式错误', reg: /^\d{6,10}$/ },
-      password: { empty: '请输入密码', format: '密码格式错误', reg: /^[a-zA-Z0-9]{6,12}$/ }
+      username: {
+        empty: '请输入账号',
+        format: '账号格式错误，请输入10位数字',
+        noPass: '账号输入错误',
+        reg: /^\d{6,10}$/,
+      },
+      password: {
+        empty: '请输入密码',
+        format: '密码格式错误，请输入8-16位数字或字母',
+        noPass: '密码输入错误',
+        reg: /^[a-zA-Z0-9]{8,16}$/,
+      },
+      protocol: {
+        noCheckd: '请认真阅读小程序使用声明',
+      },
     }
   }
 }
